@@ -2,10 +2,9 @@ parameters:
   level: 5
   phpVersion: 80200
 
-  paths:
-    - ./includes
-    - ./src
-    - ./aiwa-oral-history-recording.php
+    paths:
+      - ./MandinkaGames.php
+      - ./games
 
   autoload_files:
     - ./vendor/autoload.php

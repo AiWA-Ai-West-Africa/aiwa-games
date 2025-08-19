@@ -1,5 +1,7 @@
 <?php
 namespace AiWAMandinkaGames;
+
+use AiWAMandinkaGames\games\MandinkaFlashcards;
 /**
  * AiWA Mandinka Games
  *
@@ -76,9 +78,9 @@ final class MandinkaGames {
     /**
      * Flashcards feature instance.
      *
-     * @var \AiWAMandinkaGames\src\games\MandinkaFlashcards|null
+     * @var MandinkaFlashcards|null
      */
-    public $flashcards = null;
+    public ?MandinkaFlashcards $flashcards = null;
 
     /**
      * Class constructor.
@@ -90,8 +92,8 @@ final class MandinkaGames {
 
         $this->loadDependencies();
 
-        if ( class_exists( 'AiWAMandinkaGames\\src\\games\\MandinkaFlashcards' ) ) {
-            $this->flashcards = new \AiWAMandinkaGames\src\games\MandinkaFlashcards( $this->pluginPath, $this->pluginUrl, $this->version );
+        if ( class_exists( MandinkaFlashcards::class ) ) {
+            $this->flashcards = new MandinkaFlashcards( $this->pluginPath, $this->pluginUrl, $this->version );
             $this->flashcards->init();
         }
     }
@@ -110,7 +112,7 @@ final class MandinkaGames {
      * Loads required class files when not using Composer.
      */
     private function loadDependencies(): void {
-        $file = $this->pluginPath . 'src/games/MandinkaFlashcards.php';
+        $file = $this->pluginPath . 'games/MandinkaFlashcards.php';
         if ( file_exists( $file ) ) {
             require_once $file;
         }
