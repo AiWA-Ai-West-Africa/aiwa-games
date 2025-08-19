@@ -1,5 +1,5 @@
 <?php
-namespace AiWAMandinkaGames\src\games;
+namespace AiWAMandinkaGames\games;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -107,7 +107,7 @@ class MandinkaFlashcards {
         wp_enqueue_style( $this->styleHandle );
         wp_enqueue_script( $this->scriptHandle );
 
-        $file = $this->pluginPath . 'templates/flashcards/mandinka-flashcards-game-ui.php';
+          $file = $this->pluginPath . 'flashcards/mandinka-flashcards-game-ui.php';
         if ( file_exists( $file ) ) {
             ob_start();
             include $file;
